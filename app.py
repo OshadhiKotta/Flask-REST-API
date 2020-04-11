@@ -23,6 +23,9 @@ api.add_resource(UserRegister, '/register')
 api.add_resource(Store, '/store/<string:name>')
 api.add_resource(StoreList, '/stores')
 
+'''When using uwsgi below block does not run it gets app from above
+ & runs by itself including app.run does not run.
+'''
 if __name__ == '__main__':
     db.init_app(app)
     app.run(port=5000, debug=True)  # Gives htmlpage to check errors
